@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AmmoRefillGuy
     - BoostCollectible
     - CogAmmo
     - CogAmmoText
@@ -23,6 +24,7 @@ ScriptsOnlyBuild:
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Animation.Runtime.dll:
+    - UnityEngine.U2D.Animation.BufferManager
     - UnityEngine.U2D.Animation.SpriteSkinComposite
     - UnityEngine.U2D.Animation.SpriteSkinUpdateHelper
     Unity.2D.IK.Editor.dll:
@@ -63,10 +65,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -154,68 +154,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 634}
     - Class: 114
-      Script: {instanceID: 1568}
+      Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 1622}
+      Script: {instanceID: 2374}
     - Class: 114
-      Script: {instanceID: 2376}
+      Script: {instanceID: 2838}
     - Class: 114
-      Script: {instanceID: 2840}
+      Script: {instanceID: 2912}
     - Class: 114
-      Script: {instanceID: 2914}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3002}
+      Script: {instanceID: 3168}
     - Class: 114
-      Script: {instanceID: 3170}
+      Script: {instanceID: 4058}
     - Class: 114
-      Script: {instanceID: 4060}
+      Script: {instanceID: 4528}
     - Class: 114
-      Script: {instanceID: 4530}
+      Script: {instanceID: 4852}
     - Class: 114
-      Script: {instanceID: 4854}
+      Script: {instanceID: 5186}
     - Class: 114
-      Script: {instanceID: 5188}
+      Script: {instanceID: 6138}
     - Class: 114
-<<<<<<< HEAD
-      Script: {instanceID: 3424}
+      Script: {instanceID: 6824}
     - Class: 114
-      Script: {instanceID: 3798}
-    - Class: 114
-      Script: {instanceID: 4072}
-    - Class: 114
-      Script: {instanceID: 4542}
-    - Class: 114
-      Script: {instanceID: 4866}
-    - Class: 114
-      Script: {instanceID: 5200}
-    - Class: 114
-      Script: {instanceID: 5270}
-    - Class: 114
-      Script: {instanceID: 5810}
-    - Class: 114
-      Script: {instanceID: 6156}
-    - Class: 114
-      Script: {instanceID: 6842}
-    - Class: 114
-      Script: {instanceID: 6898}
-    - Class: 114
-      Script: {instanceID: 7120}
-    - Class: 114
-      Script: {instanceID: 7526}
-    - Class: 114
-      Script: {instanceID: 7578}
-    - Class: 114
-      Script: {instanceID: 7592}
-    - Class: 114
-      Script: {instanceID: 8264}
-    - Class: 114
-      Script: {instanceID: 8902}
-    - Class: 114
-      Script: {instanceID: 9002}
-=======
-      Script: {instanceID: 6140}
-    - Class: 114
-      Script: {instanceID: 6826}
+      Script: {instanceID: 6868}
     - Class: 114
       Script: {instanceID: 6882}
     - Class: 114
@@ -223,24 +186,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7510}
     - Class: 114
-      Script: {instanceID: 8978}
+      Script: {instanceID: 10232}
     - Class: 114
-      Script: {instanceID: 9994}
+      Script: {instanceID: 10236}
     - Class: 114
-      Script: {instanceID: 9998}
+      Script: {instanceID: 10240}
     - Class: 114
-      Script: {instanceID: 10002}
+      Script: {instanceID: 10244}
     - Class: 114
-      Script: {instanceID: 10006}
+      Script: {instanceID: 10248}
     - Class: 114
-      Script: {instanceID: 10010}
+      Script: {instanceID: 10252}
     - Class: 114
-      Script: {instanceID: 10014}
+      Script: {instanceID: 10256}
     - Class: 114
-      Script: {instanceID: 10018}
+      Script: {instanceID: 10260}
     - Class: 114
-      Script: {instanceID: 10022}
->>>>>>> 815598d7f250104372861bb2cc0402105759e7f5
+      Script: {instanceID: 10264}
+    - Class: 114
+      Script: {instanceID: 10268}
+    - Class: 114
+      Script: {instanceID: 10272}
+    - Class: 114
+      Script: {instanceID: 10276}
+    - Class: 114
+      Script: {instanceID: 10280}
+    - Class: 114
+      Script: {instanceID: 10284}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -272,12 +244,6 @@ ScriptsOnlyBuild:
     - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 6a356b04c25c0bb008c1b24bf8b0f996
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -592,12 +558,6 @@ ScriptsOnlyBuild:
     className: UnityOnDropdownValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 767bcdc6f65f4db7d3979f76b00e3ce4
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CogAmmoText
-  - hash:
-      serializedVersion: 2
       Hash: a4d905db69ca7f45f45458ae380fb66f
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -668,12 +628,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: VariablesAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 7cc06cfa5eb3edea07292da63f08ea1d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: BoostCollectible
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1126,6 +1080,12 @@ ScriptsOnlyBuild:
     className: CinemachineBrain
   - hash:
       serializedVersion: 2
+      Hash: 6a356b04c25c0bb008c1b24bf8b0f996
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
+  - hash:
+      serializedVersion: 2
       Hash: 99459976c7ca8bbb7c787f6b78bae304
     assemblyName: Cinemachine
     namespaceName: Cinemachine
@@ -1204,27 +1164,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 493aeeecc7144ae20f615cbb93d04546
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SlowCollectible
-  - hash:
-      serializedVersion: 2
       Hash: 08c6cec0d60845d71fc5e6a25f88c52f
     assemblyName: Cinemachine
     namespaceName: Cinemachine
     className: CinemachineImpulseSource
   - hash:
       serializedVersion: 2
-<<<<<<< HEAD
-      Hash: 82389b986b5197d2451f525634a14701
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: GameManagerScript
-  - hash:
-      serializedVersion: 2
-=======
->>>>>>> 815598d7f250104372861bb2cc0402105759e7f5
       Hash: a03cf6f60c605d858f83449f4b4fc400
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
@@ -1331,12 +1276,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CogAmmo
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1457,12 +1396,6 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine
     namespaceName: Cinemachine
     className: CinemachineStoryboard
-  - hash:
-      serializedVersion: 2
-      Hash: ebc7d5afe3c3c9fc78465eaea95403f2
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: RubyController
   - hash:
       serializedVersion: 2
       Hash: bb1ceaa969c7a364b8c20c5b84add7d9
@@ -1597,10 +1530,16 @@ ScriptsOnlyBuild:
     className: Projectile
   - hash:
       serializedVersion: 2
-      Hash: 19c11ba12fa325b7db286e97199e4910
+      Hash: 82389b986b5197d2451f525634a14701
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameManagerScript
+  - hash:
+      serializedVersion: 2
+      Hash: 767bcdc6f65f4db7d3979f76b00e3ce4
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CogAmmoText
   - hash:
       serializedVersion: 2
       Hash: be1a21ac4c95ce1f9e3225ae5f24de71
@@ -1621,10 +1560,40 @@ ScriptsOnlyBuild:
     className: DamageZone
   - hash:
       serializedVersion: 2
+      Hash: be1a21ac4c95ce1f9e3225ae5f24de71
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AmmoRefillGuy
+  - hash:
+      serializedVersion: 2
+      Hash: 493aeeecc7144ae20f615cbb93d04546
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SlowCollectible
+  - hash:
+      serializedVersion: 2
       Hash: 1e0a67c23adbca0ffdd5aa9af3db760b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: EnemyController
+  - hash:
+      serializedVersion: 2
+      Hash: 7cc06cfa5eb3edea07292da63f08ea1d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BoostCollectible
+  - hash:
+      serializedVersion: 2
+      Hash: c8ec415baee7650ac80d72b14e2f1eed
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RubyController
+  - hash:
+      serializedVersion: 2
+      Hash: 4cfea38fc7b1e38490e1e7ef1453fb04
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CogAmmo
   - hash:
       serializedVersion: 2
       Hash: 7cc06cfa5eb3edea07292da63f08ea1d
@@ -1640,5 +1609,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: D:/UCF Unity Projects/Rubys Adventure/Rubys Adventure Game/Rubys Adventure
+  playerPath: E:/Rubys-Adventure-Backup-main/Rubys Adventure Game/Rubys Adventure
     Project.exe

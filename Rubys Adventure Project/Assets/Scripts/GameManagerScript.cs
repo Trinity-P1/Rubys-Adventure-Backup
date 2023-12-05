@@ -11,10 +11,7 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject bgMusic;
     public GameObject winMusic;
-<<<<<<< HEAD
     public GameObject loseMusic; //Trinity's second SFX
-=======
->>>>>>> 815598d7f250104372861bb2cc0402105759e7f5
 
     // Start is called before the first frame update
     void Start()

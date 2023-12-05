@@ -12,13 +12,16 @@ public class BoostCollectible : MonoBehaviour
     {
         RubyController controller = other.GetComponent<RubyController>();
 
-        if (controller.speed == 3.0f)
-        {
-            controller.speed = 4.5f;
-	        Destroy(gameObject);
+        if(controller != null){                       // added so errors arent thrown when fruit hit by cog - Hudson
+            if (controller.speed <= 3.0f)
+            {
+                controller.speed = 4.5f;
+	            Destroy(gameObject);
 
-            controller.PlaySound(collectedClip); //Alfred's 2nd audio addition
+                controller.PlaySound(collectedClip); //Alfred's 2nd audio addition
+            }
         }
+        
     }
 }
 

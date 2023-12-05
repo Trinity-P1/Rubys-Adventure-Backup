@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
-    
+    private float baseSpeed;
+
     public int maxHealth = 5;
     public int maxAmmo = 5;
     public int currentAmmo;
@@ -23,6 +24,9 @@ public class RubyController : MonoBehaviour
     bool isInvincible;
     float invincibleTimer;
     
+    public bool slowActive;
+    public float slowTimer;
+
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
@@ -35,6 +39,7 @@ public class RubyController : MonoBehaviour
     public AudioClip throwSound;
     public AudioClip hitSound;
     public AudioClip interactSound;
+    public AudioClip ammoGuyInteract;
 
     public ParticleSystem hitPlayerPrefab;
     public ParticleSystem healthPlayerPrefab;
@@ -43,11 +48,14 @@ public class RubyController : MonoBehaviour
 
     public GameManagerScript gameManager;
 
+    public CogAmmoText ammoText;
 
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        baseSpeed = speed;
+
         animator = GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
@@ -97,6 +105,14 @@ public class RubyController : MonoBehaviour
                     PlaySound(interactSound); //Alfred's audio addition
                     character.DisplayDialog();
                 }
+                else{
+                    AmmoRefillGuy guy = hit.collider.GetComponent<AmmoRefillGuy>();
+                    if(guy != null){
+                        PlaySound(ammoGuyInteract);
+                        guy.DisplayDialog();
+                        AddAmmo(maxAmmo);
+                    }
+                }
             }
         }
 
@@ -106,13 +122,18 @@ public class RubyController : MonoBehaviour
             gameObject.SetActive(false);
             gameManager.gameOver();
             Debug.Log("Dead");
-<<<<<<< HEAD
         }
-      
+
+        // Slow effect of watermelon wears off after timer runs out - Hudson
+        if(slowActive){
+            slowTimer -= Time.deltaTime;     
+            if (slowTimer <= 0)
+            {
+                slowActive = false;
+                speed = baseSpeed;
+            }
+        }
         
-=======
-        }
->>>>>>> 815598d7f250104372861bb2cc0402105759e7f5
     }
     
     void FixedUpdate()
@@ -161,7 +182,7 @@ public class RubyController : MonoBehaviour
         {
             GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             currentAmmo--; //taking out one cog per shot
-
+            ammoText.AmmoCountUpdate(currentAmmo);
 
             Projectile projectile = projectileObject.GetComponent<Projectile>();
             projectile.Launch(lookDirection, 300);
@@ -173,12 +194,13 @@ public class RubyController : MonoBehaviour
         
     }
 
-    public void AddAmmo(int ammoAmount)
+    public void AddAmmo(int ammoAmount)    //updates ammo count, called when necessary in player controller
     {
         currentAmmo += ammoAmount;
         if (currentAmmo > maxAmmo)
         {
             currentAmmo = maxAmmo;
+            ammoText.AmmoCountUpdate(currentAmmo);
         }
 
     }

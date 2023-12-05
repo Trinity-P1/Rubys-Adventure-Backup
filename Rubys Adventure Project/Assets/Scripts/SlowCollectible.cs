@@ -5,36 +5,68 @@ using UnityEngine;
 public class SlowCollectible : MonoBehaviour
 {
     public AudioClip slowClip;
-    public float slowTime = 0;
+    public float slowTime = 4.0f;
 
     public int slowBonus = 0;
+
+    //float timerDisplay;       //these are now handled by ruby controller - Hudson
+
+    //bool slowActive = false;
 
     private RubyController controller;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        RubyController controller = other.GetComponent<RubyController>();
-       if (controller.speed == 3.0f)
-        {
-            controller.speed -= slowBonus;
+        controller = other.GetComponent<RubyController>();
 
-            gameObject.SetActive(false);
+        if(controller != null){                             // added this so errors arent thrown when the fruit gets hit be a cog  - Hudson
+            if (controller.speed >= 3.0f)
+            {
+                controller.speed -= slowBonus;
+                Destroy(gameObject);
 
-            controller.PlaySound(slowClip); //Trinity's 1st audio addition
-            Invoke(nameof(ResetEffect), slowTime);
+                controller.slowActive = true;
+
+                controller.slowTimer = slowTime;
+
+                //gameObject.SetActive(false);
+
+                controller.PlaySound(slowClip); //Trinity's 1st audio addition
+
+                //timerDisplay -= Time.deltaTime;
+                //if (timerDisplay < 0)
+                //{
+                //    Invoke(nameof(ResetEffect), slowTime);
+                //}
         }
+        }  
         
-        
-
-        
-
     }
 
+    //moved timer to ruby update function as this gets deleted after picked up  - Hudson
+
+    /*
+    void Update()
+    {
+        if(slowActive){
+            slowTimer -= Time.deltaTime;     
+            if (timerDisplay <= 0)
+            {
+                slowActive = false;
+                ResetEffect();
+            }
+        }
+    }
+    */
+
+    // Reset also now obsolete as it won't be available after the affect is applied - Hudson
+
+    /*
     private void ResetEffect()
     {
         controller.speed += slowBonus;
 
-        Destroy(gameObject);
+        Debug.Log("reset works");
     }
-
+    */
 }

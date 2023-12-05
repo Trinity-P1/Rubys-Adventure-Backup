@@ -27,9 +27,9 @@ public class CogAmmoText : MonoBehaviour
         
     }
 
-    public void AmmoUse()
+    public void AmmoCountUpdate(int change)
     {
-        cogNum--;
+        cogNum = change;
         Ammo.text = "X " + cogNum;
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class CogAmmo : MonoBehaviour
 {
 
+    public AudioClip ammoRefilled;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         RubyController controller = other.GetComponent<RubyController>();
@@ -15,6 +17,8 @@ public class CogAmmo : MonoBehaviour
             {
                 controller.AddAmmo(controller.maxAmmo);
                 Destroy(gameObject);
+
+                controller.PlaySound(ammoRefilled);         // Hudson's first audio addition
             }
         }
     }
